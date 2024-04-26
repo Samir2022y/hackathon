@@ -927,4 +927,9 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+.row {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=style.css.map */
