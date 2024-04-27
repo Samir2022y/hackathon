@@ -13,19 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.css" />
-
-  <title>Finexo</title>
+  <title> scan me </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -44,7 +32,26 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    .zoom-effect {
+      overflow: hidden;
+      position: relative;
+      width: 200px;
+      /* Adjust the width as needed */
+      height: 200px;
+      /* Adjust the height as needed */
+    }
 
+    .zoom-effect img {
+      transition: transform 0.3s ease;
+      max-width: 100%;
+    }
+
+    .zoom-effect:hover img {
+      transform: scale(1.2);
+      /* Adjust the scale factor for zoom level */
+    }
+  </style>
 </head>
 
 <body class="sub_page">
@@ -62,9 +69,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
-            <span>
-              Finexo
-            </span>
+            <img src="images/samir.png" alt="Dawir Logo" style="max-width: 100px; height: auto;">
           </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -78,27 +83,14 @@
                 <a class="nav-link" href="index.html">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="index.html#about"> About</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="service.html">Services <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="service1.html">Services <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="why.html">Why Us</a>
+                <a class="nav-link" href="index.html">Why Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="team.html">Team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
-              </li>
-              <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                  id="searchInput">
-                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
             </ul>
           </div>
         </nav>
@@ -111,91 +103,47 @@
   <!-- service section -->
 
   <section class="service_section layout_padding">
-    <div id="map" style="height: 500px;"></div>
-    <div id="addedPoints"></div>
-    <div>
-      <button id="submitBtn">Calculate Route</button>
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Our <span>Services</span>
+          </h2>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <div class="zoom-effect">
+                  <img src="scn.png" alt="">
+                </div>
+              </div>
+              <div class="detail-box">
+                <h5>
+                  scan here
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                  The
+                  point of using
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="">
+            View All
+          </a>
+        </div>
+      </div>
     </div>
-
-    <div id="clearMap"></div>
-    <div>
-      <button id="clearBtn">Clear</button>
-    </div>
-
-    <script>
-      var map = L.map( "map" ).setView( [ 36.7515, 5.0558 ], 8 );
-      L.tileLayer( 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      } ).addTo( map );
-
-      // Add search control
-      L.Control.geocoder().addTo( map );
-
-      let addedPoints = []; // Array to store coordinates of added points
-      let routeControl;
-
-      // Function to print added points
-      function printAddedPoints() {
-        let addedPointsElement = document.getElementById( "addedPoints" );
-        addedPointsElement.innerHTML = "<h3>Added Points:</h3>";
-        addedPoints.forEach( point => {
-          addedPointsElement.innerHTML += `<p>Latitude: ${point.latitude}, Longitude: ${point.longitude}</p>`;
-        } );
-      }
-
-      // Function to calculate and display the route
-      function calculateRoute() {
-        if ( routeControl ) {
-          map.removeControl( routeControl );
-        }
-        let waypoints = addedPoints.map( point => L.latLng( point.latitude, point.longitude ) );
-        routeControl = L.Routing.control( {
-          waypoints: waypoints,
-          routeWhileDragging: true
-        } ).addTo( map );
-      }
-
-      function clearMap() {
-        // Remove the route control from the map
-        if ( routeControl ) {
-          map.removeControl( routeControl );
-          routeControl = null;
-        }
-
-        // Remove all markers from the map
-        map.eachLayer( function ( layer ) {
-          if ( layer instanceof L.Marker ) {
-            map.removeLayer( layer );
-          }
-        } );
-
-        // Clear the addedPoints array
-        addedPoints = [];
-
-        // Clear the addedPoints display
-        document.getElementById( "addedPoints" ).innerHTML = "<h3>Added Points:</h3>";
-      }
-
-      // Function to handle click event on submit button
-      document.getElementById( "submitBtn" ).addEventListener( "click", function () {
-        calculateRoute(); // Calculate and display the route
-      } );
-
-      // Function to handle click event on clear button
-      document.getElementById( "clearBtn" ).addEventListener( "click", function () {
-        clearMap(); // Calculate and display the route
-      } );
-
-      map.on( 'click', ( event ) => {
-        let lat = event.latlng.lat;
-        let lng = event.latlng.lng;
-        console.log( event.latlng );
-        L.marker( [ lat, lng ] ).addTo( map );
-        addedPoints.push( { latitude: lat, longitude: lng } ); // Store the coordinates of added points
-        printAddedPoints(); // Print added points
-      } );
-    </script>
   </section>
 
   <!-- end service section -->
@@ -205,15 +153,96 @@
   <section class="info_section layout_padding2">
     <div class="container">
       <div class="row">
-        <!-- Info content here -->
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin
+              words, combined with a handful
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="index.html">
+                Home
+              </a>
+              <a class="" href="about.html">
+                About
+              </a>
+              <a class="" href="service.html">
+                Services
+              </a>
+              <a class="" href="why.html">
+                Why Us
+              </a>
+              <a class="" href="team.html">
+                Team
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- end info section -->
-
-  <!-- footer section -->
-
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
@@ -227,6 +256,10 @@
   </script>
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
 
 </body>
 
