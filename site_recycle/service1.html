@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Finexo </title>
+  <title> scan me </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -22,7 +22,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -31,7 +32,26 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    .zoom-effect {
+      overflow: hidden;
+      position: relative;
+      width: 200px;
+      /* Adjust the width as needed */
+      height: 200px;
+      /* Adjust the height as needed */
+    }
 
+    .zoom-effect img {
+      transition: transform 0.3s ease;
+      max-width: 100%;
+    }
+
+    .zoom-effect:hover img {
+      transform: scale(1.2);
+      /* Adjust the scale factor for zoom level */
+    }
+  </style>
 </head>
 
 <body class="sub_page">
@@ -49,12 +69,11 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
-            <span>
-              Finexo
-            </span>
+            <img src="images/samir.png" alt="Dawir Logo" style="max-width: 100px; height: auto;">
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -64,25 +83,14 @@
                 <a class="nav-link" href="index.html">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="index.html#about"> About</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="service.html">Services <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="service1.html">Services <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="why.html">Why Us</a>
+                <a class="nav-link" href="index.html">Why Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="team.html">Team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
-              </li>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
             </ul>
           </div>
         </nav>
@@ -109,51 +117,13 @@
           <div class="col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s1.png" alt="">
+                <div class="zoom-effect">
+                  <img src="scn.png" alt="">
+                </div>
               </div>
               <div class="detail-box">
                 <h5>
-                  Currency Wallet
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/s2.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Security Storage
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/s3.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Expert Support
+                  scan here
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable content of a page when looking at its layout.
@@ -230,7 +200,8 @@
               Info
             </h4>
             <p>
-              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin
+              words, combined with a handful
             </p>
           </div>
         </div>
@@ -272,25 +243,12 @@
       </div>
     </div>
   </section>
-
-  <!-- end info section -->
-
-  <!-- footer section -->
-  <section class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
-    </div>
-  </section>
-  <!-- footer section -->
-
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->

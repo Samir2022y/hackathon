@@ -50,9 +50,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
-            <span>
-              Dawir(will change after)
-            </span>
+            <img src="images/samir.png" alt="Dawir Logo" style="max-width: 100px; height: auto;">
           </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -66,19 +64,23 @@
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="#about"> About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="service.html">Services</a>
+                <a class="nav-link" href="#service">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="why.html">Why Us</a>
+                <a class="nav-link" href="index.html">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./sky_dash/src/index.html">Dashboard</a>
               </li>
             </ul>
           </div>
         </nav>
       </div>
     </header>
+
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section ">
@@ -98,7 +100,7 @@
                       greener future for our planet
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#about" class="btn1">
                         Read More
                       </a>
                     </div>
@@ -183,7 +185,7 @@
 
   <!-- service section -->
 
-  <section class="service_section layout_padding">
+  <section class="service_section layout_padding" id="service">
     <div class="service_container">
       <div class="container ">
         <div class="heading_container heading_center">
@@ -208,7 +210,7 @@
                   We offer solutions to optimize the process of gathering
                   trash, making waste management more efficient and environmentally friendly.
                 </p>
-                <a href="">
+                <a href="map_backup.html">
                   Read More
                 </a>
               </div>
@@ -227,7 +229,7 @@
                   Our advanced technology can quickly and accurately detect whether an
                   object is recyclable or not, helping you make informed decisions about waste disposal.
                 </p>
-                <a href="">
+                <a href="service1.html">
                   Read More
                 </a>
               </div>
@@ -243,7 +245,7 @@
 
   <!-- about section -->
 
-  <section class="about_section layout_padding">
+  <section class="about_section layout_padding" id="about">
     <div class="container  ">
       <div class="heading_container heading_center">
         <h2>
@@ -303,37 +305,37 @@
               Address
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="index.html">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
                   Location
                 </span>
               </a>
-              <a href="">
+              <a href="index.html">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call +213 553668512
                 </span>
               </a>
-              <a href="">
+              <a href="index.html">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  samir.guenchi@ensia.edu.dz.com
                 </span>
               </a>
             </div>
           </div>
           <div class="info_social">
-            <a href="">
+            <a href="index.html">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="">
+            <a href="index.html">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
-            <a href="">
+            <a href="index.html">
               <i class="fa fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="">
+            <a href="index.html">
               <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </div>
@@ -358,16 +360,16 @@
               <a class="active" href="index.html">
                 Home
               </a>
-              <a class="" href="about.html">
+              <a class="" href="index.html">
                 About
               </a>
-              <a class="" href="service.html">
+              <a class="" href="index.html">
                 Services
               </a>
-              <a class="" href="why.html">
+              <a class="" href="index.html">
                 Why Us
               </a>
-              <a class="" href="team.html">
+              <a class="" href="index.html">
                 Team
               </a>
             </div>
@@ -405,7 +407,24 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+  <script>
+    document.addEventListener( "DOMContentLoaded", function () {
+      // Smooth scrolling for links with hash (#)
+      document.querySelectorAll( 'a[href^="#"]' ).forEach( anchor => {
+        anchor.addEventListener( 'click', function ( e ) {
+          e.preventDefault();
 
+          const target = document.querySelector( this.getAttribute( 'href' ) );
+          if ( target ) {
+            window.scrollTo( {
+              top: target.offsetTop,
+              behavior: 'smooth'
+            } );
+          }
+        } );
+      } );
+    } );
+  </script>
 </body>
 
 </html>

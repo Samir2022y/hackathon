@@ -931,5 +931,15 @@ a:focus {
   display: flex;
   justify-content: center;
 }
+.custom_nav-container {
+  margin-top: 0px;
+}
+.btn1 {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=style.css.map */
